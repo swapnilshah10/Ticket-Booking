@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Ticket List</title>
+    <!-- Add CSS framework here -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+      <h1 class ="col-sm-10" >Ticket List </h1>
+      <a
+        class="btn btn-primary sm my-3 col-sm-1"
+        href="my_tickets/">
+        My Tickets
+      </a>
+    </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date Created</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>User</th>
+            <th>Book</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ticket in tickets %}
+          <tr>
+            <td>{{ ticket.date_created }}</td>
+            <td>{{ ticket.description }}</td>
+            <td>{{ ticket.price }}$</td>
+            <td>{{ ticket.size }}</td>
+            <td>{{ ticket.user }}</td>
+            <td>
+              <a
+                class="btn btn-primary"
+                href="{% url 'make_booking' ticket.id %}">
+                Book
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

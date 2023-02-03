@@ -1,0 +1,35 @@
+<!-- error.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Error</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            {% if message %}
+            <h1 class="display-4">Oops! {{ message }}!</h1>
+            {% else %}
+            <h1 class="display-4">Oops! Something went wrong</h1>
+            
+            <p class="lead">
+              We apologize for the inconvenience. Our team is working on
+              resolving the issue.
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

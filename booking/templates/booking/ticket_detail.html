@@ -25,45 +25,33 @@
   </head>
   <body>
     <div class="container">
-      <a class="btn btn-primary sm my-3" href="../">
+      <a class="btn btn-primary sm my-3" href="../../">
         Back to Home
       </a>
-      {% if tickets %}
-      <h1 class="text-center">My Tickets</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Ticket ID</th>
-            <th>Date Booked</th>
-            <th>Quantity</th>
-            <th>Show Details</th>
-            <th>Cancel</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for ticket in tickets %}
-          <tr>
-            <td>{{ ticket.id }}</td>
-            <td>{{ ticket.date_booked }}</td>
-            <td>{{ ticket.ticket_quantity }}</td>
-            <td><a
-            class="btn btn-primary"
-            href="{% url 'ticket_detail' ticket.id %}"
-          >
-            Show Detail
-          </a></td>
-          <td><a
-            class="btn btn-danger"
-            href="{% url 'cancel_booking' ticket.id %}">
-            Cancel
-          </a></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      {% else %}
-      <h1 class="display-4">Oops! No Booking Found!!</h1>
-      {% endif %}
+      <h1>Ticket Detail</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <tr>
+              <th>Ticket Number</th>
+              <td>{{ ticket.id }}</td>
+            </tr>
+            <tr>
+              <th>Booked Date</th>
+              <td>{{ ticket.date_booked }}</td>
+            </tr>
+            <tr>
+              <th>Size</th>
+              <td>{{ ticket.ticket_quantity }}</td>
+            </tr>
+            <tr>
+              <th>Booked By</th>
+              <td>{{ ticket.user }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <a href="{% url 'cancel_booking' ticket.id %}" class="btn btn-danger">Cancel Booking</a>
     </div>
   </body>
 </html>
